@@ -6,12 +6,10 @@ import com.sibasish.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/course")
@@ -23,5 +21,15 @@ public class CourseController {
     @PostMapping("/create")
     public ResponseEntity<CourseResponse> createCourse(@RequestBody @Valid CourseDTO courseDTO) {
         return new ResponseEntity<>(courseService.createCourse(courseDTO), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/getCourseById/{courseId}")
+    public ResponseEntity<CourseResponse> getCourseById(@PathVariable("courseId") Long courseId) {
+        return new ResponseEntity<>(courseService.getCourseById(courseId), HttpStatus.OK);
+    }
+
+    @GetMapping("/getAllCourses")
+    public ResponseEntity<List<CourseResponse>> getAllCourses() {
+        return new ResponseEntity<>(courseService.getAllCourses(), HttpStatus.OK);
     }
 }

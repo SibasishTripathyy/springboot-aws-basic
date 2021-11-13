@@ -18,6 +18,6 @@ public class StudentResponse {
     private Long studentId;
     private String name;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private Set<Course> courseSet;
 }

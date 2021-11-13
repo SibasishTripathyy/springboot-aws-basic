@@ -19,6 +19,6 @@ public class CourseResponse {
     private String name;
     private Integer credits;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private Set<Student> studentSet;
 }
