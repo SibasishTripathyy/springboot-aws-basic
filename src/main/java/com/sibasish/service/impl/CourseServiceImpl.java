@@ -2,7 +2,7 @@ package com.sibasish.service.impl;
 
 import com.sibasish.dto.CourseDTO;
 import com.sibasish.entity.Course;
-import com.sibasish.exceptions.CourseNotFoundException;
+import com.sibasish.exceptions.ResourceNotFoundException;
 import com.sibasish.repository.CourseRepository;
 import com.sibasish.response.CourseResponse;
 import com.sibasish.service.CourseService;
@@ -35,7 +35,7 @@ public class CourseServiceImpl implements CourseService {
             Course course = courseOptional.get();
             return entityToResponse(course);
         } else {
-            throw new CourseNotFoundException("Course not found for id: " + courseId);
+            throw new ResourceNotFoundException("Course not found for id: " + courseId);
         }
     }
 
