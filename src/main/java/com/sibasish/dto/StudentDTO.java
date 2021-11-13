@@ -6,7 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.util.Set;
 
 @Getter
@@ -18,5 +20,6 @@ public class StudentDTO {
     @NotBlank(message = "Student Name Cannot Be Blank")
     private String name;
 
-    private Set<Course> courseSet;
+    @NotEmpty(message = "A student needs to be enrolled in at least one course")
+    private Set<@Valid Course> courseSet;
 }

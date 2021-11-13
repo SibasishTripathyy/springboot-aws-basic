@@ -1,5 +1,6 @@
 package com.sibasish.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,10 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "course")
+@Table(
+        name = "course",
+        uniqueConstraints = {@UniqueConstraint(columnNames = "name")}
+)
 @Getter
 @Setter
 @NoArgsConstructor
@@ -26,6 +30,7 @@ public class Course {
     @Column(name = "credits")
     private Integer credits;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "courseSet")
     private Set<Student> studentSet;
 }

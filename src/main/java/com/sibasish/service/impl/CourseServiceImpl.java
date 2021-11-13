@@ -23,8 +23,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public CourseResponse createCourse(CourseDTO courseDTO) {
-        Course course = courseRepository.save(dtoToEntity(courseDTO));
-        return entityToResponse(course);
+        return entityToResponse(courseRepository.save(dtoToEntity(courseDTO)));
     }
 
     @Override
