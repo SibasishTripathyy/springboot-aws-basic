@@ -40,7 +40,13 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public List<CourseResponse> getAllCourses() {
+
         List<Course> courseList = courseRepository.findAll();
+
+        if (courseList.isEmpty()) {
+            throw new ResourceNotFoundException("No records are present in the database");
+        }
+
         List<CourseResponse> courseResponseList = new ArrayList<>();
 
         courseList.stream().forEach(course -> courseResponseList.add(entityToResponse(course)));

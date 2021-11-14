@@ -45,6 +45,11 @@ public class StudentServiceImpl implements StudentService {
     public List<StudentResponse> getAllStudents() {
 
         List<Student> studentList = studentRepository.findAll();
+
+        if (studentList.isEmpty()) {
+            throw new ResourceNotFoundException("No records are present in the database");
+        }
+
         List<StudentResponse> studentResponseList = new ArrayList<>();
 
         studentList.stream().forEach(student -> studentResponseList.add(entityToResponse(student)));
