@@ -29,6 +29,7 @@ public class CourseController {
         return new ResponseEntity<>(courseService.createCourse(courseDTO), HttpStatus.CREATED);
     }
 
+
     /**
      * API to fetch a course by its id
      *
@@ -39,6 +40,7 @@ public class CourseController {
     public ResponseEntity<CourseResponse> getCourseById(@PathVariable("courseId") Long courseId) {
         return new ResponseEntity<>(courseService.getCourseById(courseId), HttpStatus.OK);
     }
+
 
     /**
      * API to fetch all courses

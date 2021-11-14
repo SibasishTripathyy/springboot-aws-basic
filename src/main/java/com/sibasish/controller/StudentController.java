@@ -29,6 +29,7 @@ public class StudentController {
         return new ResponseEntity<>(studentService.createStudent(studentDTO), HttpStatus.CREATED);
     }
 
+
     /**
      * API to fetch a student by its id
      *
@@ -39,6 +40,7 @@ public class StudentController {
     public ResponseEntity<StudentResponse> getStudentById(@PathVariable("studentId") Long studentId) {
         return new ResponseEntity<>(studentService.getStudentById(studentId), HttpStatus.OK);
     }
+
 
     /**
      * API to fetch all the students
