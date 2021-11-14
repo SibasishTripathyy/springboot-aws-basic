@@ -18,16 +18,33 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    /**
+     * API to create a new student
+     *
+     * @param studentDTO - the student input data
+     * @return the newly created student's response
+     */
     @PostMapping("/create")
     public ResponseEntity<StudentResponse> createStudent(@RequestBody @Valid StudentDTO studentDTO) {
         return new ResponseEntity<>(studentService.createStudent(studentDTO), HttpStatus.CREATED);
     }
 
+    /**
+     * API to fetch a student by its id
+     *
+     * @param studentId - the required student's id
+     * @return the student by its id
+     */
     @GetMapping("getStudentById/{studentId}")
     public ResponseEntity<StudentResponse> getStudentById(@PathVariable("studentId") Long studentId) {
         return new ResponseEntity<>(studentService.getStudentById(studentId), HttpStatus.OK);
     }
 
+    /**
+     * API to fetch all the students
+     *
+     * @return a list of all the students
+     */
     @GetMapping("/getAllStudents")
     public ResponseEntity<List<StudentResponse>> getAllStudents() {
         return new ResponseEntity<>(studentService.getAllStudents(), HttpStatus.OK);
