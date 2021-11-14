@@ -1,4 +1,4 @@
-# springboot-aws-basic
+# Springboot AWS Basic
 
 Basic Spring Boot Application deployed on AWS
 
@@ -11,3 +11,6 @@ Basic Spring Boot Application deployed on AWS
 
 - AWS Elastic Beanstalk deployment
 - RDS for data storage
+
+## Package Structure
+![packageStructure](packageStructure.jpg)
